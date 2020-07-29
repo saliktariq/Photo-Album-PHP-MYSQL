@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{TITLE}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <nav id="languageSelector">
+            <form method="GET" action='includes/set_language.php'>
+                <fieldset>
+                    <p>
+                        <label>
+                            Site Language
+                        </label>
+                        <select name="chooseLanguage" id="myList">
+                            <option value='en'>English</option>
+                            <option value='ro'>Romanian</option>
+                        </select>
+                        <input type="submit" name="setLanguage" value="Set Language"/>
+                    </p>
+
+                </fieldset>
+
+            </form>
+        </nav>
+        <div id="contentCounter">
+            <h3>W1 Music - {{COUNT}}</h3>
+        </div>
+
+        <nav id="mainnav">
+            <ul>
+                <li><a href="index.php?page=home" target="_self">Home</a></li>
+                <li><a href="index.php?page=artists" target="_self">Artists</a></li>
+                <li><a href="index.php?page=songs" target="_self">Songs</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--
+This file contains template for creating header for every rendered page
+-->

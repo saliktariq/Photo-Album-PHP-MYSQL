@@ -1,0 +1,88 @@
+/*Applying CSS reset*/
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+#wrapper {
+    border: 0px solid black;
+    margin: 0.75rem auto;
+    width: 90%;
+
+}
+#languageSelector {
+    text-align: right;
+    background-color: #8D8741;
+    width: 100%;
+
+}
+button {
+    display: inline;
+}
+#myList {
+    margin-right: 0rem;
+}
+#contentCounter {
+    padding-left: 2rem;
+    text-align: left;
+    background-color: #DAAD86;
+    font-size: 90%;
+    color: black;
+}
+#mainnav {
+    text-align: center;
+    background-color: #659DBD;
+    clear: both;
+}
+#mainnav li {
+    display: inline-block;
+    list-style: none;
+}
+#mainnav a {
+    text-decoration: none;
+    letter-spacing: 0.07em;
+    padding: 0.5rem;
+    border-right: 1px solid hsl(6, 66%, 37%);
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+    display: inline-block;
+    min-width: 200px;
+}
+#mainnav li:first-child a {
+    border-left: 1px solid #9D2C20;
+}
+#mainnav a:hover, #secondary a:hover {
+    color: #9D2C20;
+}
+h1, #main-text {
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+footer {
+    background-color: #BC986A;
+    text-align: center;
+    margin-top: 5rem;
+}
+table {
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: 2rem;
+}
+#artistTable, td, th {
+    border: 1px solid black;
+    text-align: left;
+}
+th {
+    height: 50px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #659DBD;
+}
+td {
+    padding: 1rem;
+}
+div {
+    background-color: #FBEEC1;
+
+}
