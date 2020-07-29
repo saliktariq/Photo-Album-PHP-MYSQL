@@ -16,7 +16,7 @@ if(isset($_POST['singlefileupload'])) {
             $createThumb = img_resize($fileHandle['filename'], $thumbName,150,150);
 
             if($createThumb['status']){
-                addToDB(basename($fileHandle['filename']),htmlentities($_POST['title']),htmlentities($_POST['description']),$fileHandle['filename'],$thumbName,$resizeImage['newWidth'],$resizeImage['newHeight']);
+                $dbTransaction = addToDB(basename($fileHandle['filename']),htmlentities($_POST['title']),htmlentities($_POST['description']),$fileHandle['filename'],$thumbName,$resizeImage['newWidth'],$resizeImage['newHeight']);
                 $formMessage = $createThumb['msg'];
             }
         }

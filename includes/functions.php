@@ -255,6 +255,8 @@ function addToDB($filename,$title,$description,$imageurl,$thumburl,$width,$heigh
 
         $result = $addToDb->execute();
         $connection->commit();
+        $connection = null;
+        return true;
     } catch (PDOException $e) {
         $connection->rollBack();
         $connection = null;
