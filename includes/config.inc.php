@@ -4,7 +4,7 @@
  * along with configuration to change the application language.
  * PLEASE MAKE A COPY OF THIS FILE BEFORE MAKING ANY CHANGES SO THAT UNDESIRABLE CHANGES CAN BE REVERTED.
  * @author: Salik Tariq
- * @date: 02 July 2020
+ * @date: 29 July 2020
  */
 
 /*
@@ -37,4 +37,25 @@ $config['pdo_options'] = [
  * Following variable contains the current language selection, which in turn render pages in relevant language.
  */
 $config['language'] = 'en';
+
+/**
+ * Absolute path to application root directory (one level above current dir)
+ * Tip: using dynamically generated absolute paths makes the app more portable.
+ */
+$config['app_dir'] = dirname(dirname(__FILE__));
+
+/**
+ * Absolute path to directory where uploaded full size images will be stored
+ * Using an absolute path to the upload dir can help circumvent security restrictions on some servers
+ * Remember: Set permission to images folder to 777
+ */
+$config['upload_dir'] = $config['app_dir'] . '/images/';
+
+/**
+ * Absolute path to directory where uploaded resized thumbs will be stored
+ * Using an absolute path to the upload dir can help circumvent security restrictions on some servers
+ * Remember: Set permission to thumb folder to 777
+ */
+$config['upload_dir'] = $config['app_dir'] . '/thumb/';
+
 ?>

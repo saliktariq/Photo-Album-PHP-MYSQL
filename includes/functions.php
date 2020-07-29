@@ -2,7 +2,7 @@
 /*
  * This file contains all the functions that help to make the code precise.
  * @author: Salik Tariq
- * @date: 02 July 2020
+ * @date: 29 July 2020
  */
 
 
@@ -23,19 +23,7 @@ function parseTemplate($template, $templateData) //source: Mr Ian Hollender HOE:
     return $template;
 }
 
-/*
- * Function to convert seconds in the form of mm:ss
- * @param $time containing time in seconds
- * @return time in format of mm:ss
- * @author: Salik Tariq
- * @date 02 July 2020
- */
 
-function songLengthToMinSec($time)
-{
-    $result = date('i:s', $time);
-    return $result;
-}
 
 /*
  * Function to autoload classes in php file
@@ -51,7 +39,7 @@ function myAutoloader($class)
  * Creates a PDO database object
  * @return active PDO database connection
  * @author: Salik Tariq
- * @date: 02 July 2020
+ * @date: 29 July 2020
  */
 function createConnection()
 {
@@ -71,7 +59,7 @@ function createConnection()
  * Run this query AFTER creating database PDO Object (connection)
  * @return associative array containing database query result
  * @author Salik Tariq
- * @date 02 July 2020
+ * @date 29 July 2020
  */
 function queryDB($link, $sql)
 {
@@ -83,27 +71,6 @@ function queryDB($link, $sql)
     }
     $dataQ = null;
     return $result;
-}
-
-/*
- * Function to avoid repetition of code used to render page headings, description and parsing template
- * @param $heading containing page heading in form of String
- * @param $description containing page description in the form of String
- * @$htmlContent String containing html that needs rendered data to be concatenated to it.
- * @return $htmlContent containing String of html containing required page render
- * @author Salik Tariq
- * @date 02 July 2020
- */
-
-function renderStaticPage($heading, $description, $htmlContent)
-{
-    $templateData = array(
-        "{{HEADING}}" => $heading,
-        "{{CONTENT}}" => $description
-    );
-    $htmlContent .= file_get_contents('templates/page.html');
-    $htmlContent = parseTemplate($htmlContent, $templateData);
-    return $htmlContent;
 }
 
 /*

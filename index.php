@@ -10,7 +10,6 @@ session_start();
 
 // importing required php files
 require_once('includes/functions.php');
-require_once('includes/sql_queries.php');
 require_once('includes/config.inc.php');
 
 // Checking if Session variable is set for custom language selection
@@ -38,12 +37,8 @@ switch ($id) {
         include 'views/home.php';
         break;
 
-    case 'artists':
-        include 'views/artists.php';
-        break;
-
-    case 'songs':
-        include 'views/songs.php';
+    case 'upload':
+        include 'views/upload.php';
         break;
 
     default:
