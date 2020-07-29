@@ -97,7 +97,7 @@ Takes the a single file uploaded via
 the HTTP POST method */
 function processUpload($file)
 {
-    require_once 'config.inc.php';
+    include 'config.inc.php';
 
 
         // Get the error code
@@ -232,9 +232,31 @@ function img_resize($in_img_file, $out_img_file, $req_width, $req_height, $quali
 function renderForm($formTemplate,$formMessage){
     require_once 'config.inc.php';
     $htmlContent = $formTemplate;
-    $htmlContent = str_replace('{{FORM_ACTION}}','<?php echo htmlentities($_SERVER[\'REQUEST_URI\'], ENT_QUOTES, \'UTF-8\'); ?>',$htmlContent );
     $feedback = '<p>'.$formMessage.'</p>';
     $htmlContent = str_replace('{{FORM_FEEDBACK}}',$feedback,$htmlContent);
     return $htmlContent;
+}
+
+function addToDB($filename,$title,$description,$imageurl,$thumburl,$width,$height){
+
+    try {
+        include 'sql_queries.php';
+        $connection = createConnection();
+        $query = $sql['insert_photo_data'];
+        $addToDb = $connection->prepare($query);
+        $addToDb->bindParam(":filename", $filename);
+        $addToDb->bindParam(":title", $title);
+        $addToDb->bindParam(":description", $description);
+        $addToDb->bindParam(":imageurl", $imageurl);
+        $addToDb->bindParam(":thumburl", $thumburl);
+        $addToDb->bindParam(":width", $width);
+        $addToDb->bindParam(":height", $height);
+
+        $result = $addToDb->execute();
+    } catch (PDOException $e) {
+        $connection = null;
+        die($e->getMessage());
+    }
+
 }
 ?>

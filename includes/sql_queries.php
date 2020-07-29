@@ -5,7 +5,7 @@
  */
 
 // Query to retrieve all information about photo from database
-$sql['all_photo_data'] = 'select photogallary.id, photogallary.filename, photogallary.title, photogallary.description, photogallary.imageurl, photogallary.thumburl, photogallary.width, photogallary.height from photogallary order by photogallary.id ASC';
-
+$sql['insert_photo_data'] = "INSERT INTO `photogallery`(`filename`,`title`,`description`,`imageurl`,`thumburl`,`width`,`height`)
+VALUES(:filename, :title, :description, :imageurl, :thumburl,:width,:height)";
 
 ?>

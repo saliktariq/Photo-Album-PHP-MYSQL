@@ -1,4 +1,4 @@
-CREATE TABLE `photogallary` (
+CREATE TABLE `photogallery` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `filename` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -8,4 +8,5 @@ CREATE TABLE `photogallary` (
   `width` smallint NOT NULL,
   `height` smallint NOT NULL,
   PRIMARY KEY (`id`)
-);
+  
+) ENGINE = InnoDB;
