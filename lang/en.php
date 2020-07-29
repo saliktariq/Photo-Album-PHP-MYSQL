@@ -4,7 +4,10 @@
  * Any text displayed in the application can be altered by changing the relevant $lang[] array variable.
  */
 
-// Application heading
+// Site title
+$lang['site_title'] = 'Photo Gallery';
+
+// Page title
 $lang['page_title'] = 'Photo Gallery';
 
 /*

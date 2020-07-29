@@ -1,7 +1,6 @@
 <?php
-include_once('templates/header.html');
 include('includes/config.inc.php');
-
+echo renderUpload();
 
 
 $formMessage = '';

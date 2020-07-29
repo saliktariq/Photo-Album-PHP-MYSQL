@@ -4,24 +4,27 @@
  * Any text displayed in the application can be altered by changing the relevant $lang[] array variable.
  */
 
-// Application heading
-$lang['page_title'] = 'Galerie Foto';
+// Site title
+$lang['site_title'] = 'Photo Gallery';
+
+// Page title
+$lang['page_title'] = 'Photo Gallery';
 
 /*
  * Text entries for the home page
  */
 
-$lang['home_heading'] = 'Imagini';
+$lang['home_heading'] = 'Images';
 
 /*
  * Text entries for Upload page
  */
-$lang['upload_heading'] = 'Incarcarea unei Imagini';
+$lang['upload_heading'] = 'Upload an Image';
 
 /*
  * Text entries for error page
  */
 
-$lang['error_heading'] = 'Pagina Negasita';
+$lang['error_heading'] = 'Page Not Found';
 
 ?>

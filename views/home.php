@@ -1,6 +1,7 @@
 <?php
 
-include_once 'templates/header.html';
+echo renderHome();
+
 include_once 'templates/footer.html';
 
 ?>

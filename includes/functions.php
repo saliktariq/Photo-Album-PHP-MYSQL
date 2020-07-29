@@ -264,4 +264,30 @@ function addToDB($filename,$title,$description,$imageurl,$thumburl,$width,$heigh
     }
 
 }
+
+function renderHeader(){
+    include('config.inc.php');
+    include('lang/' . $config['language'] . '.php');
+    $content = '';
+    $content .= file_get_contents('templates/header.html');
+    $content = str_replace('{{TITLE}}',$lang['site_title'],$content);
+    $content = str_replace('{{PAGE_TITLE}}',$lang['page_title'],$content);
+    return $content;
+}
+
+function renderHome(){
+    include('config.inc.php');
+    include('lang/' . $config['language'] . '.php');
+    $content = renderHeader();
+    $content = str_replace('{{HEADING}}',$lang['home_heading'],$content);
+    return $content;
+}
+
+function renderUpload(){
+    include('config.inc.php');
+    include('lang/' . $config['language'] . '.php');
+    $content = renderHeader();
+    $content = str_replace('{{HEADING}}',$lang['upload_heading'],$content);
+    return $content;
+}
 ?>
