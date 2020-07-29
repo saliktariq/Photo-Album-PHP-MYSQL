@@ -242,6 +242,7 @@ function addToDB($filename,$title,$description,$imageurl,$thumburl,$width,$heigh
     try {
         include 'sql_queries.php';
         $connection = createConnection();
+        $connection->beginTransaction();
         $query = $sql['insert_photo_data'];
         $addToDb = $connection->prepare($query);
         $addToDb->bindParam(":filename", $filename);
@@ -253,7 +254,9 @@ function addToDB($filename,$title,$description,$imageurl,$thumburl,$width,$heigh
         $addToDb->bindParam(":height", $height);
 
         $result = $addToDb->execute();
+        $connection->commit();
     } catch (PDOException $e) {
+        $connection->rollBack();
         $connection = null;
         die($e->getMessage());
     }
