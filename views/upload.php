@@ -18,6 +18,12 @@ if(isset($_POST['singlefileupload'])) {
             if($createThumb['status']){
                 $dbTransaction = addToDB(basename($fileHandle['filename']),htmlentities($_POST['title']),htmlentities($_POST['description']),$fileHandle['filename'],$thumbName,$resizeImage['newWidth'],$resizeImage['newHeight']);
                 $formMessage = $createThumb['msg'];
+                if(!$dbTransaction){
+                    unlink($fileHandle['filename']);
+                    unlink($thumbName);
+                    $formMessage = "DB transaction unsuccessful, deleted file and thumbnail.";
+
+                }
             }
         }
     } else {
