@@ -1,0 +1,42 @@
+<form enctype="multipart/form-data" action="{{FORM_ACTION}}" method="post">
+    <fieldset>
+        <div class="feedback">
+            {{FORM_FEEDBACK}}
+        </div>
+        <div>
+            <label for="file">Select Image</label>
+            <input
+                    id="file"
+                    type="file"
+                    name="userfile"
+                    placeholder="Select image"
+            />
+            <small id="imageHelp">
+                Only JPEG images are accepted
+            </small>
+        </div>
+
+        <div>
+            <label for="title">Title</label>
+            <input
+                    id="title"
+                    type="text"
+                    name="title"
+                    placeholder="Image title"
+            />
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Please enter description about the photo to be uploaded (max: 254 characters)"
+            ></textarea>
+        </div>
+
+        <button type="submit" name="singlefileupload">
+            Save
+        </button>
+    </fieldset>
+</form>

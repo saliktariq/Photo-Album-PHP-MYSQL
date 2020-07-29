@@ -56,6 +56,6 @@ $config['upload_dir'] = $config['app_dir'] . '/images/';
  * Using an absolute path to the upload dir can help circumvent security restrictions on some servers
  * Remember: Set permission to thumb folder to 777
  */
-$config['upload_dir'] = $config['app_dir'] . '/thumb/';
+$config['thumb_dir'] = $config['app_dir'] . '/thumb/';
 
 ?>
