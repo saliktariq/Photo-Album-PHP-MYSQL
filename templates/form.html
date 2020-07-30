@@ -1,10 +1,10 @@
 <form enctype="multipart/form-data" method="post" action="" >
-    <fieldset>
+    <fieldset id="formFieldset">
         <div class="feedback">
             {{FORM_FEEDBACK}}
         </div>
-        <div>
-            <label for="file">Select Image</label>
+        <div class="formElements">
+            <label class="label" for="file">Select Image</label>
             <input
                     id="file"
                     type="file"
@@ -12,12 +12,12 @@
                     placeholder="Select image"
             />
             <small id="imageHelp">
-                Only JPEG images are accepted
+                Only submit JPEG images
             </small>
         </div>
 
-        <div>
-            <label for="title">Title</label>
+        <div class="formElements">
+            <label class="label" for="title">Title</label>
             <input
                     id="title"
                     type="text"
@@ -26,8 +26,8 @@
             />
         </div>
 
-        <div>
-            <label for="description">Description</label>
+        <div class="formElements">
+            <label class="label" for="description">Description</label>
             <textarea
                     id="description"
                     name="description"
@@ -35,7 +35,7 @@
             ></textarea>
         </div>
 
-        <button type="submit" name="singlefileupload">
+        <button type="submit" name="singlefileupload" id="formButton">
             Save
         </button>
     </fieldset>
