@@ -290,4 +290,17 @@ function renderUpload(){
     $content = str_replace('{{HEADING}}',$lang['upload_heading'],$content);
     return $content;
 }
+
+function galleryDataArray(){
+    $photoData = array();
+    $photoData['id'] = '';
+    $photoData['filename'] = '';
+    $photoData['title'] = '';
+    $photoData['description'] = '';
+    $photoData['imageurl'] = '';
+    $photoData['thumburl'] = '';
+    $photoData['width'] = '';
+    $photoData['height'] = '';
+    return $photoData;
+}
 ?>
