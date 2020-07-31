@@ -110,7 +110,7 @@ function processUpload($file)
                 $mime_type = getMimeType($_FILES['userfile']['tmp_name']);
                 if (strpos($mime_type, "image/jpeg") !== false) {
                     //
-                    $upfilename = basename($file['name']);
+                    $upfilename = 'x'. basename($file['name']);
                     $newname = $config['upload_dir'] . $upfilename;
                     // Check file doesn't already exist
                     if (file_exists($newname)) {
