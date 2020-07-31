@@ -27,4 +27,6 @@ $lang['upload_heading'] = 'Upload an Image';
 
 $lang['error_heading'] = 'Page Not Found';
 
+$lang['image_view'] = 'Image View';
+
 ?>

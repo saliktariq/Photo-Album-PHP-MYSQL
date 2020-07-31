@@ -41,7 +41,11 @@ switch ($id) {
         include 'views/upload.php';
         break;
 
-    default:
+    case 'large':
+        include 'views/largephoto.php';
+        break;
+
+       default:
         include 'views/404.php';
 }
 ?>

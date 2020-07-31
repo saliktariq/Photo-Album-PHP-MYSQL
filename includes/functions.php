@@ -305,6 +305,13 @@ function renderHome(){
     $content = str_replace('{{HEADING}}',$lang['home_heading'],$content);
     return $content;
 }
+function renderImageView(){
+    include('config.inc.php');
+    include('lang/' . $config['language'] . '.php');
+    $content = renderHeader();
+    $content = str_replace('{{HEADING}}',$lang['image_view'],$content);
+    return $content;
+}
 
 function renderUpload(){
     include('config.inc.php');
