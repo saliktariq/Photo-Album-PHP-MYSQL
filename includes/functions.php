@@ -43,8 +43,8 @@ function myAutoloader($class)
  */
 function createConnection()
 {
-    include('config.inc.php'); // included to access config[] variables inside the function block
-    require_once('classes/MyPDO.php'); // included to create MyPDO object
+    include(dirname(dirname(__FILE__)).'/includes/config.inc.php');
+    include($config['app_dir'].'/classes/MyPDO.php');
     try {
         $connection = new MyPDO($config['dsn'], $config['db_user'], $config['db_pass'], $config['pdo_options']);
     } catch (PDOException $e) {
@@ -303,4 +303,3 @@ function galleryDataArray(){
     $photoData['height'] = '';
     return $photoData;
 }
-?>

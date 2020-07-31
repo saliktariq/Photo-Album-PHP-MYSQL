@@ -8,4 +8,6 @@
 $sql['insert_photo_data'] = "INSERT INTO `photogallery`(`filename`,`title`,`description`,`imageurl`,`thumburl`,`width`,`height`)
 VALUES(:filename, :title, :description, :imageurl, :thumburl,:width,:height)";
 
+$sql['fetch_all'] = "SELECT * from `photogallery`";
+
 ?>
