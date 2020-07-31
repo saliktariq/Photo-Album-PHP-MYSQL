@@ -1,6 +1,6 @@
 <?php
 include(dirname(dirname(__FILE__)).'/includes/config.inc.php');
-include($config['app_dir'].'/includes/functions.php');
+
 include($config['app_dir'].'/includes/sql_queries.php');
 
 
@@ -12,5 +12,5 @@ if ($dataArray === false){
     exit("Database empty, no photo to display");
 }
 
-
+//print_r($dataArray);
 
