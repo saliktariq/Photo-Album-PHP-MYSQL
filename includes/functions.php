@@ -265,6 +265,29 @@ function addToDB($filename,$title,$description,$imageurl,$thumburl,$width,$heigh
 
 }
 
+function fetchIDData($id){
+    try {
+        include('sql_queries.php');
+        $connection = createConnection();
+        $query = $sql['fetch_on_id'];
+        $data = $connection->prepare($query);
+        $data->bindParam(":id",$id);
+        $result = $data->execute();
+        $result = array();    //source: https://stackoverflow.com/questions/26151048/loop-through-the-data-in-pdo
+        while ($row = $data->fetch(PDO::FETCH_ASSOC)) {
+            $result[] = $row;
+        }
+        $connection = null;
+        return $result;
+    } catch (PDOException $e){
+        $connection = null;
+        die($e->getMessage());
+    }
+
+
+
+}
+
 function renderHeader(){
     include('config.inc.php');
     include('lang/' . $config['language'] . '.php');
@@ -302,4 +325,21 @@ function galleryDataArray(){
     $photoData['width'] = '';
     $photoData['height'] = '';
     return $photoData;
+}
+
+function sanitizeIDData($idArray){
+    foreach ($idArray as $key => $value){
+        $photoData = galleryDataArray();
+        $photoData['id'] = htmlentities($value['id']);
+        $photoData['filename'] = htmlentities($value['filename']);
+        $photoData['title'] = htmlentities($value['title']);
+        $photoData['description'] = htmlentities($value['description']);
+        $photoData['imageurl'] = htmlentities($value['imageurl']);
+        $photoData['thumburl'] = htmlentities($value['thumburl']);
+        $photoData['width'] = htmlentities($value['width']);
+        $photoData['height'] = htmlentities($value['height']);
+
+    }
+    return $photoData;
+
 }

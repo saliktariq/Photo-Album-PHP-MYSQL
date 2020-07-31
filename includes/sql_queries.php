@@ -10,4 +10,6 @@ VALUES(:filename, :title, :description, :imageurl, :thumburl,:width,:height)";
 
 $sql['fetch_all'] = "SELECT * from `photogallery`";
 
+$sql['fetch_on_id'] = "SELECT * FROM `photogallery` WHERE (`id` = :id)";
+
 ?>
