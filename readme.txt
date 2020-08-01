@@ -31,6 +31,13 @@ This project includes a file 'createDataStructure.sql' located within /sql folde
 This sql query can simply be executed on a MySQL server to produce required tables. This script can be run from an
 application like MySQL WorkBench to install the data structure.
 
+APPLICATION INSTALLATION:
+
+All files must be unzipped in the root folder. Please set the following directory permissions:
+
+/images - 777
+/thumb - 777
+
 DATABASE ACCESS:
 
 PHP Data Object PDO is used for data access and data transactions. Class MyPDO.php is creates as child class of PDO class,
