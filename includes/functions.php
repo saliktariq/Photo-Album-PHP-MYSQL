@@ -350,3 +350,17 @@ function sanitizeIDData($idArray){
     return $photoData;
 
 }
+
+function formValidation($array){
+    $message = '';
+    if($array['title'] == ''){
+        $message .= 'Enter a valid title'.PHP_EOL;
+    }
+    if($array['description'] == ''){
+        $message .= 'Enter a valid description'.PHP_EOL;
+    }
+    if(empty($_FILES['userfile']['name'])){ //source: https://stackoverflow.com/questions/2958167/how-to-test-if-a-user-has-selected-a-file-to-upload
+        $message .= 'Select a valid JPEG file'.PHP_EOL;
+    }
+    return $message;
+}
