@@ -39,4 +39,8 @@ $lang['image_view'] = 'Image View';
 $lang['title'] = 'TITLE:';
 
 $lang['description'] = 'DESCRIPTION:';
+
+$lang['width'] = 'WIDTH:';
+
+$lang['height'] = 'HEIGHT:';
 ?>

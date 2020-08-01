@@ -20,6 +20,8 @@ $content = str_replace('{{TITLE}}', $title, $content);
 $content = str_replace('{{DESCRIPTION}}', $description, $content);
 $content = str_replace('{{TITLE:}}', $lang['title'], $content);
 $content = str_replace('{{DESCRIPTION:}}', $lang['description'], $content);
+$content = str_replace('{{WIDTH:}}', $lang['width'], $content);
+$content = str_replace('{{HEIGHT:}}', $lang['height'], $content);
 
 // Display generated view
 echo $content;

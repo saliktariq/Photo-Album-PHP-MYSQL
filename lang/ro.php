@@ -40,4 +40,8 @@ $lang['title'] = 'TITLU:';
 
 $lang['description'] = 'DESCRIERE:';
 
+$lang['width'] = 'INALTIME:';
+
+$lang['height'] = ':';
+
 ?>
