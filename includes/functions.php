@@ -78,23 +78,27 @@ function queryDB($link, $sql)
  * @param $languageChoice String containing target language choice
  * @return include string to return relevant language file
  * @author Salik Tariq
- * @date 02 July 2020
+ * @date 29 July 2020
  */
 
 function setLanguage($languageChoice){
     include('lang/' . htmlentities($languageChoice) . '.php');
 }
 
-/* Function to return the mime type of an uploaded file */
+/* Function to return the mime type of an uploaded file
+ * @author Ian Hollender
+ * Code reused from HOE
+ */
 function getMimeType($file) {
     $file_info = new finfo(FILEINFO_MIME);  // object oriented approach!
     $mime_type = $file_info->buffer(file_get_contents($file));  // e.g. gives "image/jpeg"
     return $mime_type;
 }
 
-/* Function to process a file upload.
-Takes the a single file uploaded via
-the HTTP POST method */
+/* Function to process a file upload. Takes the a single file uploaded via the HTTP POST method
+ * @author Ian Hollender
+ * Code reused from HOE with slight modifications
+*/
 function processUpload($file)
 {
     include 'config.inc.php';
@@ -158,6 +162,8 @@ function processUpload($file)
  * @param int $req_width Width of area the image should fill
  * @param int $req_height Height of area the image should fill
  * @return bool, message, new_width, new_height, origWidth, origHeight as array
+ * @author Ian Hollender
+ * Code reused from the HOE
  */
 function img_resize($in_img_file, $out_img_file, $req_width, $req_height, $quality=100) {
 
@@ -228,7 +234,13 @@ function img_resize($in_img_file, $out_img_file, $req_width, $req_height, $quali
     }
 }
 
-
+/**
+ * @param $formTemplate Form template data
+ * @param $formMessage Feedback message to the user
+ * @return string containing HTML code to render form.
+ * @author Salik Tariq
+ * @date 01 August 2020
+ */
 function renderForm($formTemplate,$formMessage){
     require_once 'config.inc.php';
     $htmlContent = $formTemplate;
@@ -237,11 +249,25 @@ function renderForm($formTemplate,$formMessage){
     return $htmlContent;
 }
 
+/**
+ * @param $filename contains the file name of the file being uploaded
+ * @param $title contains the title of the filename as input on the form
+ * @param $description the description of the filename as input on the form
+ * @param $imageurl contains the image url of the full size image (resized at 600px max)
+ * @param $thumburl the image url of the thumbnail image (resized at 150px max)
+ * @param $width width of the full size image
+ * @param $height height of the full size image
+ * @return bool true if transaction completes without error
+ * @author Salik Tariq
+ * @date 01 August 2020
+ */
 function addToDB($filename,$title,$description,$imageurl,$thumburl,$width,$height){
 
     try {
         include 'sql_queries.php';
         $connection = createConnection();
+
+        // Creating sql transaction to keep database integrity
         $connection->beginTransaction();
         $query = $sql['insert_photo_data'];
         $addToDb = $connection->prepare($query);
@@ -254,17 +280,29 @@ function addToDB($filename,$title,$description,$imageurl,$thumburl,$width,$heigh
         $addToDb->bindParam(":height", $height);
 
         $result = $addToDb->execute();
+        // commit all changes to database if everything has completed without error
         $connection->commit();
+
+        // destroy connection variable
         $connection = null;
         return true;
     } catch (PDOException $e) {
+        // rollback any changes if the transaction has been interrupted.
         $connection->rollBack();
         $connection = null;
+
+        // exit with message if there has been an error
         die($e->getMessage());
     }
 
 }
 
+/**
+ * @param $id contains the id that is being interrogated.
+ * @return array containing data relevant to the $id provided
+ * @author Salik Tariq
+ * @date 01 August 2020
+ */
 function fetchIDData($id){
     try {
         include('sql_queries.php');
@@ -288,6 +326,14 @@ function fetchIDData($id){
 
 }
 
+/**
+ * @param $siteTitle containing the site title in the header.
+ * @param $pageTitle containing the main titile of the page
+ * @param $heading containing the h1 heading for the page
+ * @return string containing generated html code from the template
+ * @author Salik Tariq
+ * @date 01 August 2020
+ */
 function renderStaticPage($siteTitle, $pageTitle, $heading){
 
         $templateData = array(
@@ -301,45 +347,24 @@ function renderStaticPage($siteTitle, $pageTitle, $heading){
 
 }
 
-
-//function renderHeader(){
-//    include('config.inc.php');
-//    include('lang/' . $config['language'] . '.php');
-//    $content = '';
-//    $content .= file_get_contents('templates/header.html');
-//    $content = str_replace('{{TITLE}}',$lang['site_title'],$content);
-//    $content = str_replace('{{PAGE_TITLE}}',$lang['page_title'],$content);
-//    return $content;
-//}
-//
-//function renderHome(){
-//    include('config.inc.php');
-//    include('lang/' . $config['language'] . '.php');
-//    $content = renderHeader();
-//    $content = str_replace('{{HEADING}}',$lang['home_heading'],$content);
-//    return $content;
-//}
-//function renderImageView(){
-//    include('config.inc.php');
-//    include('lang/' . $config['language'] . '.php');
-//    $content = renderHeader();
-//    $content = str_replace('{{HEADING}}',$lang['image_view'],$content);
-//    return $content;
-//}
-//
-//function renderUpload(){
-//    include('config.inc.php');
-//    include('lang/' . $config['language'] . '.php');
-//    $content = renderHeader();
-//    $content = str_replace('{{HEADING}}',$lang['upload_heading'],$content);
-//    return $content;
-//}
-
+/**
+ * @param $message containing the message to be rendered
+ * @return string containing the h1 heading message
+ * @author Salik Tariq
+ * @date 01 August 2020
+ * This function helps separate html from php code on 404.php page
+ */
 function render404($message){
     return '<h1>' . $message . '</h1>';
 
 }
 
+/**
+ * This helper function generates an array containing all the values that are stored in the db
+ * @return array  an array of data relevant to the photo.
+ * @author Salik Tariq
+ * @date 01 August 2020
+ */
 function galleryDataArray(){
     $photoData = array();
     $photoData['id'] = '';
@@ -353,6 +378,12 @@ function galleryDataArray(){
     return $photoData;
 }
 
+/**
+ * @param $idArray an associative array containing data from the database
+ * @return array containing sanitized data from the database
+ * @author Salik Tariq
+ * @date 01 August 2020
+ */
 function sanitizeIDData($idArray){
     foreach ($idArray as $key => $value){
         $photoData = galleryDataArray();
@@ -370,6 +401,13 @@ function sanitizeIDData($idArray){
 
 }
 
+/**
+ * @param $array the $_POST[] global variable containing all submitted form data
+ * @return string message containing any errors accumulated after validating the form
+ * @author Salik Tariq
+ * @date 01 August 2020
+ */
+
 function formValidation($array){
     $message = '';
     if($array['title'] == ''){
@@ -377,6 +415,9 @@ function formValidation($array){
     }
     if($array['description'] == ''){
         $message .= 'Enter a valid description.'.PHP_EOL;
+    }
+    if(strlen($array['description']) > 254) {
+        $message .= 'Maximum description length is 254 characters.'.PHP_EOL;
     }
     if(empty($_FILES['userfile']['name'])){ //source: https://stackoverflow.com/questions/2958167/how-to-test-if-a-user-has-selected-a-file-to-upload
         $message .= 'Select a valid JPEG file.'.PHP_EOL;

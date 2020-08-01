@@ -13,9 +13,9 @@ require_once('includes/functions.php');
 require_once('includes/config.inc.php');
 
 // Checking if Session variable is set for custom language selection
-if(isset($_SESSION['language'])){
+if (isset($_SESSION['language'])) {
     include('lang/' . $_SESSION['language'] . '.php');
-} else{
+} else {
     // Load default language if session variable is not set
     include('lang/' . $config['language'] . '.php');
 }
@@ -45,7 +45,7 @@ switch ($id) {
         include 'views/largephoto.php';
         break;
 
-       default:
+    default:
         include 'views/404.php';
 }
 ?>

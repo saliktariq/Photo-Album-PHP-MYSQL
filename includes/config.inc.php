@@ -2,9 +2,10 @@
 /*
  * This file contains all the database connection settings and credentials,
  * along with configuration to change the application language.
+ * DECLARATION: I have used most of this code from my TMA as the server environment is same.
  * PLEASE MAKE A COPY OF THIS FILE BEFORE MAKING ANY CHANGES SO THAT UNDESIRABLE CHANGES CAN BE REVERTED.
  * @author: Salik Tariq
- * @date: 29 July 2020
+ * @date: 01 August 2020
  */
 
 /*
@@ -40,21 +41,18 @@ $config['language'] = 'en';
 
 /**
  * Absolute path to application root directory (one level above current dir)
- * Tip: using dynamically generated absolute paths makes the app more portable.
  */
 $config['app_dir'] = dirname(dirname(__FILE__));
 
 /**
- * Absolute path to directory where uploaded full size images will be stored
- * Using an absolute path to the upload dir can help circumvent security restrictions on some servers
+ * Relative path to directory where uploaded full size images will be stored
  * Remember: Set permission to images folder to 777
  */
 
  $config['upload_dir'] =  './images/';
 
 /**
- * Absolute path to directory where uploaded resized thumbs will be stored
- * Using an absolute path to the upload dir can help circumvent security restrictions on some servers
+ * Relative path to directory where uploaded resized thumbs will be stored
  * Remember: Set permission to thumb folder to 777
  */
 

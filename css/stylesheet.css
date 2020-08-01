@@ -4,18 +4,21 @@
     margin: 0;
     font-family: sans-serif;
 }
+
 #wrapper {
     border: 0px solid black;
     margin: 0.75rem auto;
     width: 90%;
 
 }
+
 #languageSelector {
     text-align: right;
     background-color: #D5D5D5;
     width: 100%;
 
 }
+
 button {
     display: inline;
 }
@@ -25,10 +28,12 @@ button {
     background-color: #9E9E9E;
     clear: both;
 }
+
 #mainnav li {
     display: inline-block;
     list-style: none;
 }
+
 #mainnav a {
     text-decoration: none;
     letter-spacing: 0.07em;
@@ -40,9 +45,11 @@ button {
     display: inline-block;
     min-width: 200px;
 }
+
 #mainnav li:first-child a {
     border-left: 1px solid black;
 }
+
 #mainnav a:hover, #secondary a:hover {
     color: antiquewhite;
 }
@@ -53,13 +60,13 @@ footer {
     margin-top: 5rem;
 }
 
+/* Using flexbox model from Introduction to Web Authoring module slides*/
 .flexContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 1rem;
-
 }
 
 .flexItem {
@@ -69,11 +76,9 @@ footer {
     background-color: ghostwhite;
     padding: 1rem;
     border: 1px solid lightgrey;
-
-
 }
 
-#pageTitle{
+#pageTitle {
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -92,7 +97,7 @@ footer {
     padding-bottom: 2rem;
 }
 
-.feedback{
+.feedback {
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 1rem;
@@ -111,7 +116,6 @@ textarea {
     padding: 10px;
     margin: 10px 0;
     float: right;
-
 }
 
 input[type=text] {
@@ -119,13 +123,12 @@ input[type=text] {
     margin: 10px 0;
     width: 300px;
     float: right;
-
-
 }
-#formButton{
-/*Source: https://www.w3schools.com/css/css3_buttons.asp*/
 
-    background-color: #4CAF50; /* Green */
+#formButton {
+    /* Source: https://www.w3schools.com/css/css3_buttons.asp*/
+
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -135,18 +138,15 @@ input[type=text] {
     font-size: 16px;
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
-
 }
 
-.label{
+.label {
     margin-left: 1.5rem;
     display: inline-block;
-
 }
 
-#imageHelp{
+#imageHelp {
     font-size: 0.8rem;
-
     background-color: moccasin;
 }
 

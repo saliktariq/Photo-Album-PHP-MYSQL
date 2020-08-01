@@ -29,6 +29,11 @@ $lang['error_heading'] = 'Page Not Found';
 
 $lang['error_description'] = 'We are sorry but the page you are looking for is not available.';
 
+
+/*
+ * Text entries for Single image view page
+ */
+
 $lang['image_view'] = 'Image View';
 
 $lang['title'] = 'TITLE:';

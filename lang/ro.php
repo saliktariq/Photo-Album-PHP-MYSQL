@@ -29,6 +29,11 @@ $lang['error_heading'] = 'Pagina Nu a Fost Gasita';
 
 $lang['error_description'] = 'Ne pare rău, dar pagina căutată nu este disponibilă..';
 
+/*
+ * Text entries for Single image view page
+ */
+
+
 $lang['image_view'] = 'Vizualizare imagine';
 
 $lang['title'] = 'TITLU:';
