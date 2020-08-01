@@ -108,7 +108,7 @@ function processUpload($file)
             if ($error == UPLOAD_ERR_OK) {
                 // Get the mime type
                 $mime_type = getMimeType($_FILES['userfile']['tmp_name']);
-                if (strpos($mime_type, "image/jpeg") !== false) {
+                if (strpos($mime_type, "image/jpeg") !== false and ((substr($_FILES['userfile']['name'] , -4) == ".jpg") or (substr($_FILES['userfile']['name'] , -5) == ".jpeg") )) {
                     //
                     $upfilename = 'x'. basename($file['name']);
                     $newname = $config['upload_dir'] . $upfilename;
