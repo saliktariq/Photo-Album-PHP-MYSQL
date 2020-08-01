@@ -27,6 +27,12 @@ $lang['upload_heading'] = 'Incarcați o Imagine';
 
 $lang['error_heading'] = 'Pagina Nu a Fost Gasita';
 
+$lang['error_description'] = 'Ne pare rău, dar pagina căutată nu este disponibilă..';
+
 $lang['image_view'] = 'Vizualizare imagine';
+
+$lang['title'] = 'TITLU:';
+
+$lang['description'] = 'DESCRIERE:';
 
 ?>

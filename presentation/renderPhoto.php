@@ -11,6 +11,8 @@ include(dirname(dirname(__FILE__)) . '/data_access/fetchPhotoByID.php');
     $content = str_replace('{{ID}}', $imageID, $content);
     $content = str_replace('{{TITLE}}', $title, $content);
     $content = str_replace('{{DESCRIPTION}}', $description, $content);
+$content = str_replace('{{TITLE:}}', $lang['title'], $content);
+$content = str_replace('{{DESCRIPTION:}}', $lang['description'], $content);
     echo $content;
 
 

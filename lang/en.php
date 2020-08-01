@@ -31,4 +31,7 @@ $lang['error_description'] = 'We are sorry but the page you are looking for is n
 
 $lang['image_view'] = 'Image View';
 
+$lang['title'] = 'TITLE:';
+
+$lang['description'] = 'DESCRIPTION:';
 ?>
