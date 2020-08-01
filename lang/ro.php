@@ -5,28 +5,28 @@
  */
 
 // Site title
-$lang['site_title'] = 'Photo Gallery';
+$lang['site_title'] = 'Galerie Foto';
 
-// Page title
-$lang['page_title'] = 'Photo Gallery';
+// Application title
+$lang['page_title'] = 'Galerie Foto';
 
 /*
  * Text entries for the home page
  */
 
-$lang['home_heading'] = 'Images';
+$lang['home_heading'] = 'Imagini';
 
 /*
  * Text entries for Upload page
  */
-$lang['upload_heading'] = 'Upload an Image';
+$lang['upload_heading'] = 'Incarcați o Imagine';
 
 /*
  * Text entries for error page
  */
 
-$lang['error_heading'] = 'Page Not Found';
+$lang['error_heading'] = 'Pagina Nu a Fost Gasita';
 
-$lang['image_view'] = 'Image View';
+$lang['image_view'] = 'Vizualizare imagine';
 
 ?>

@@ -9,6 +9,5 @@ if(!isset($_GET['ID'])){
 
 
 include_once 'templates/footer.html';
-include_once 'templates/footer.html';
 
 ?>

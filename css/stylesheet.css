@@ -59,6 +59,7 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 1rem;
+
 }
 
 .flexItem {
@@ -68,6 +69,8 @@ footer {
     background-color: ghostwhite;
     padding: 1rem;
     border: 1px solid lightgrey;
+
+
 }
 
 #pageTitle{
@@ -93,7 +96,7 @@ footer {
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 1rem;
-    background-color: darkgray;
+    background-color: beige;
     width: 80%;
     margin-left: 1rem;
 }

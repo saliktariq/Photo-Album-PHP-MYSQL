@@ -321,6 +321,15 @@ function renderUpload(){
     return $content;
 }
 
+function render404(){
+    include('config.inc.php');
+    include('lang/' . $config['language'] . '.php');
+    $content = renderHeader();
+    $content = str_replace('{{HEADING}}','Error',$content);
+    $content .= '<h1>' . $lang['error_heading'] . '</h1>';
+    return $content;
+}
+
 function galleryDataArray(){
     $photoData = array();
     $photoData['id'] = '';
@@ -354,13 +363,13 @@ function sanitizeIDData($idArray){
 function formValidation($array){
     $message = '';
     if($array['title'] == ''){
-        $message .= 'Enter a valid title'.PHP_EOL;
+        $message .= 'Enter a valid title.'.PHP_EOL;
     }
     if($array['description'] == ''){
-        $message .= 'Enter a valid description'.PHP_EOL;
+        $message .= 'Enter a valid description.'.PHP_EOL;
     }
     if(empty($_FILES['userfile']['name'])){ //source: https://stackoverflow.com/questions/2958167/how-to-test-if-a-user-has-selected-a-file-to-upload
-        $message .= 'Select a valid JPEG file'.PHP_EOL;
+        $message .= 'Select a valid JPEG file.'.PHP_EOL;
     }
     return $message;
 }
