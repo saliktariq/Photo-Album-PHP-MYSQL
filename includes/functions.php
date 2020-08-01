@@ -246,6 +246,9 @@ function renderForm($formTemplate,$formMessage){
     $htmlContent = $formTemplate;
     $feedback = '<p>'.$formMessage.'</p>';
     $htmlContent = str_replace('{{FORM_FEEDBACK}}',$feedback,$htmlContent);
+    $submitValue = htmlentities($_SERVER['REQUEST_URI'], ENT_QUOTES, 'UTF-8');
+    $htmlContent = str_replace('{{ACTION}}', $submitValue,$htmlContent);
+
     return $htmlContent;
 }
 
