@@ -288,46 +288,56 @@ function fetchIDData($id){
 
 }
 
-function renderHeader(){
-    include('config.inc.php');
-    include('lang/' . $config['language'] . '.php');
-    $content = '';
-    $content .= file_get_contents('templates/header.html');
-    $content = str_replace('{{TITLE}}',$lang['site_title'],$content);
-    $content = str_replace('{{PAGE_TITLE}}',$lang['page_title'],$content);
-    return $content;
+function renderStaticPage($siteTitle, $pageTitle, $heading){
+
+        $templateData = array(
+            "{{TITLE}}" => $siteTitle,
+            "{{PAGE_TITLE}}" => $pageTitle,
+            "{{HEADING}}" => $heading
+        );
+        $htmlContent = file_get_contents('templates/header.html');
+        $htmlContent = parseTemplate($htmlContent,$templateData);
+        return $htmlContent;
+
 }
 
-function renderHome(){
-    include('config.inc.php');
-    include('lang/' . $config['language'] . '.php');
-    $content = renderHeader();
-    $content = str_replace('{{HEADING}}',$lang['home_heading'],$content);
-    return $content;
-}
-function renderImageView(){
-    include('config.inc.php');
-    include('lang/' . $config['language'] . '.php');
-    $content = renderHeader();
-    $content = str_replace('{{HEADING}}',$lang['image_view'],$content);
-    return $content;
-}
 
-function renderUpload(){
-    include('config.inc.php');
-    include('lang/' . $config['language'] . '.php');
-    $content = renderHeader();
-    $content = str_replace('{{HEADING}}',$lang['upload_heading'],$content);
-    return $content;
-}
+//function renderHeader(){
+//    include('config.inc.php');
+//    include('lang/' . $config['language'] . '.php');
+//    $content = '';
+//    $content .= file_get_contents('templates/header.html');
+//    $content = str_replace('{{TITLE}}',$lang['site_title'],$content);
+//    $content = str_replace('{{PAGE_TITLE}}',$lang['page_title'],$content);
+//    return $content;
+//}
+//
+//function renderHome(){
+//    include('config.inc.php');
+//    include('lang/' . $config['language'] . '.php');
+//    $content = renderHeader();
+//    $content = str_replace('{{HEADING}}',$lang['home_heading'],$content);
+//    return $content;
+//}
+//function renderImageView(){
+//    include('config.inc.php');
+//    include('lang/' . $config['language'] . '.php');
+//    $content = renderHeader();
+//    $content = str_replace('{{HEADING}}',$lang['image_view'],$content);
+//    return $content;
+//}
+//
+//function renderUpload(){
+//    include('config.inc.php');
+//    include('lang/' . $config['language'] . '.php');
+//    $content = renderHeader();
+//    $content = str_replace('{{HEADING}}',$lang['upload_heading'],$content);
+//    return $content;
+//}
 
-function render404(){
-    include('config.inc.php');
-    include('lang/' . $config['language'] . '.php');
-    $content = renderHeader();
-    $content = str_replace('{{HEADING}}','Error',$content);
-    $content .= '<h1>' . $lang['error_heading'] . '</h1>';
-    return $content;
+function render404($message){
+    return '<h1>' . $message . '</h1>';
+
 }
 
 function galleryDataArray(){
@@ -373,3 +383,4 @@ function formValidation($array){
     }
     return $message;
 }
+

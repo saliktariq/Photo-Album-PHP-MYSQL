@@ -1,6 +1,6 @@
 <?php
-include('includes/config.inc.php');
-echo renderUpload();
+//include('includes/config.inc.php');
+echo renderStaticPage($lang['site_title'], $lang['page_title'] , $lang['upload_heading'] );
 
 
 $formMessage = '';

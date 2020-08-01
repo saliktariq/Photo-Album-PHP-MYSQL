@@ -1,5 +1,5 @@
 <?php
-echo renderImageView();
+echo renderStaticPage($lang['site_title'], $lang['page_title'] , $lang['image_view'] );
 if(!isset($_GET['ID'])){
     echo 'ID not set';
 } else {
