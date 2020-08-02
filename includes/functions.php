@@ -428,3 +428,19 @@ function formValidation($array){
     return $message;
 }
 
+/**
+ * @param $fullPath full path of the document
+ * @return string relative path of the document
+ * @author Salik Tariq
+ * @date 02 August 2020
+ * Learnt at: //https://stackoverflow.com/questions/20845916/using-php-to-display-an-image-by-passing-to-html-img-tag-contains-variables-pass
+ */
+function absoluteToRelativePath($fullPath){
+
+    /* '/home/mtariq01/public_www/w1fma/' is the path from server root to web root */
+    return substr($fullPath,strlen('/home/mtariq01/public_www/w1fma/'));
+}
+
+
+
+?>

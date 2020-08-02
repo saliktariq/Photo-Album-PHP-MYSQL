@@ -11,7 +11,7 @@ $imagedata = fetchIDData($ID);
  * Populating variables with the data retrieved from the database. The retrieved data is an associative array
  * with single record associated with the $ID provided. Hence data is accessed from two dimensional array.
  */
-$imageURL = $imagedata[0]['imageurl'];
+$imageURL = absoluteToRelativePath($imagedata[0]['imageurl']);
 $altText = $imagedata[0]['filename'];
 $width = $imagedata[0]['width'];
 $height = $imagedata[0]['height'];

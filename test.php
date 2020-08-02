@@ -14,3 +14,4 @@ $variable = $config['app_dir'].$config['upload_dir'];
 echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $config['upload_dir']);
 
 
+echo strlen('/home/mtariq01/public_www/w1fma/');

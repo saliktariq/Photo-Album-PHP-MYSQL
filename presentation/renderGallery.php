@@ -16,7 +16,7 @@ foreach ($dataArray as $key => $value){
     $content = str_replace('{{ID}}',$value['id'],$content);
     $content = str_replace('{{HREF}}','index.php?page=large&ID=',$content);
     $content = str_replace('{{PAGEID}}',$value['id'],$content);
-    $content = str_replace('{{SOURCE}}',$value['thumburl'],$content);
+    $content = str_replace('{{SOURCE}}',absoluteToRelativePath($value['thumburl']),$content);
     $content = str_replace('{{ALT_TEXT}}',$value['filename'], $content);
     echo $content;
 

@@ -45,17 +45,33 @@ $config['language'] = 'en';
 $config['app_dir'] = dirname(dirname(__FILE__));
 
 /**
- * Relative path to directory where uploaded full size images will be stored
+ * Absolute path to directory where uploaded full size images will be stored
  * Remember: Set permission to images folder to 777
  */
 
- $config['upload_dir'] =  './images/';
+//Absolute Path
+$config['upload_dir'] =  $config['app_dir'].'/images/';
+
+/*
+ * Uncomment the relative path below if the application is deployed in another environment and the absolute path from root
+ * can not be found. Please make sure to comment out the absolute path if relative path is uncommented.
+ */
+//$config['upload_dir'] =  './images/';
+
+
 
 /**
- * Relative path to directory where uploaded resized thumbs will be stored
+ * Absolute path to directory where uploaded resized thumbs will be stored
  * Remember: Set permission to thumb folder to 777
  */
 
- $config['thumb_dir'] = './thumb/';
+//Absolute Path
+$config['thumb_dir'] = $config['app_dir'].'/thumb/';
+
+/*
+ * Uncomment the relative path below if the application is deployed in another environment and the absolute path from root
+ * can not be found. Please make sure to comment out the absolute path if relative path is uncommented.
+ */
+// $config['thumb_dir'] = './thumb/';
 
 ?>
