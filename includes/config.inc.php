@@ -53,8 +53,8 @@ $config['app_dir'] = dirname(dirname(__FILE__));
 $config['upload_dir'] =  $config['app_dir'].'/images/';
 
 /*
- * Uncomment the relative path below if the application is deployed in another environment and the absolute path from root
- * can not be found. Please make sure to comment out the absolute path if relative path is uncommented.
+ * Uncomment the relative path below if the absolute path is not accessible
+ * Please make sure to comment out the absolute path if relative path is uncommented.
  */
 //$config['upload_dir'] =  './images/';
 
@@ -69,8 +69,8 @@ $config['upload_dir'] =  $config['app_dir'].'/images/';
 $config['thumb_dir'] = $config['app_dir'].'/thumb/';
 
 /*
- * Uncomment the relative path below if the application is deployed in another environment and the absolute path from root
- * can not be found. Please make sure to comment out the absolute path if relative path is uncommented.
+ * Uncomment the relative path below if the absolute path is not accessible
+ * Please make sure to comment out the absolute path if relative path is uncommented.
  */
 // $config['thumb_dir'] = './thumb/';
 

@@ -435,10 +435,11 @@ function formValidation($array){
  * @date 02 August 2020
  * Learnt at: //https://stackoverflow.com/questions/20845916/using-php-to-display-an-image-by-passing-to-html-img-tag-contains-variables-pass
  */
+
 function absoluteToRelativePath($fullPath){
 
-    /* '/home/mtariq01/public_www/w1fma/' is the path from server root to web root */
-    return substr($fullPath,strlen('/home/mtariq01/public_www/w1fma/'));
+    $relative = str_replace(dirname(dirname(__FILE__)), '', $fullPath);
+    return '.'.$relative;
 }
 
 
