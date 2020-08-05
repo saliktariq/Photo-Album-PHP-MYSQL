@@ -7,23 +7,25 @@
 // Including the photo data that is retrieved by data access layer file fetchPhotoByID.php
 include(dirname(dirname(__FILE__)) . '/data_access/fetchPhotoByID.php');
 
-// Accessing the single photo page (largephoto.html) template
-$content = file_get_contents(dirname(dirname(__FILE__)) . '/templates/largephoto.html');
+// Array containing the labels from template used to generate the view
+$templateData = array(
+    '{{SOURCE}}' => $imageURL,
+    '{{ALT_TEXT}}' => $altText,
+    '{{WIDTH}}' => $width,
+    '{{HEIGHT}}' => $height,
+    '{{ID}}' => $imageID,
+    '{{TITLE}}' => $title,
+    '{{DESCRIPTION}}' => $description,
+    '{{TITLE:}}' => $lang['title'],
+    '{{DESCRIPTION:}}' => $lang['description'],
+    '{{WIDTH:}}' => $lang['width'],
+    '{{HEIGHT:}}' => $lang['height']
+);
 
-// Updating the template placeholders.
-$content = str_replace('{{SOURCE}}', $imageURL, $content);
-$content = str_replace('{{ALT_TEXT}}', $altText, $content);
-$content = str_replace('{{WIDTH}}', $width, $content);
-$content = str_replace('{{HEIGHT}}', $height, $content);
-$content = str_replace('{{ID}}', $imageID, $content);
-$content = str_replace('{{TITLE}}', $title, $content);
-$content = str_replace('{{DESCRIPTION}}', $description, $content);
-$content = str_replace('{{TITLE:}}', $lang['title'], $content);
-$content = str_replace('{{DESCRIPTION:}}', $lang['description'], $content);
-$content = str_replace('{{WIDTH:}}', $lang['width'], $content);
-$content = str_replace('{{HEIGHT:}}', $lang['height'], $content);
+// Accessing the single photo page (largephoto.html) template
+$template = file_get_contents(dirname(dirname(__FILE__)) . '/templates/largephoto.html');
 
 // Display generated view
-echo $content;
+echo parseTemplate($template,$templateData);
 
 ?>
